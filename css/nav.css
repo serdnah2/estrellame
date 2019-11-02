@@ -1,0 +1,36 @@
+.nav {
+    position: fixed;
+    width: 100%;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+}
+
+.nav .logo {
+    width: 325px;
+}
+
+.nav .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.nav .user-info p {
+    margin: 0;
+}
+
+.nav .user-info img {
+    width: 80px;
+    border-radius: 50%;
+    margin-left: 12px;
+    box-shadow: 0px 1px 6px grey;
+}
