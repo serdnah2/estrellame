@@ -1,0 +1,49 @@
+.landing .stars-wrapper {
+    margin-top: 35px;
+}
+
+.landing .stars-wrapper h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.landing .stars {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.landing .stars .star {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    max-width: 160px;
+}
+
+.landing .stars .star.team-work {
+    background: #9959e7;
+}
+
+.landing .stars .star.think-big {
+    background: #eb0d8a;
+}
+
+.landing .stars .star + .star {
+    margin-left: 24px;
+}
+
+.landing .stars .star img {
+    height: 30px;
+    margin-right: 12px;
+}
+
+.landing .stars .star p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
