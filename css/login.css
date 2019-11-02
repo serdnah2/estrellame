@@ -1,0 +1,86 @@
+.login {
+    width: 560px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.login #login-form img {
+    width: 100%;
+    max-width: 325px;
+}
+
+.login .login-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 65px 86px 40px;
+    box-sizing: border-box;
+}
+
+.login .login-title {
+    margin: 0;
+}
+
+.login .login-text {
+    margin: 34px 0 0 0;
+    font-size: 17px;
+    color: #696969;
+}
+
+.login .login-input-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login .login-input-email {
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #cfcfcf;
+    padding: 10px;
+    color: #000;
+    box-sizing: border-box;
+    transition: border .5s linear;
+    font-size: 14px;
+}
+
+.login .login-input-email:focus {
+    outline: none;
+    border: 1px solid #01a0dd;
+}
+
+.login .login-input-email.has-error {
+    border: 1px solid #ed232a;
+}
+
+.login #login-error {
+    font-size: 14px;
+    margin: 6px 0 16px;
+    opacity: 0;
+    transition: opacity .5s linear;
+}
+
+.login .login-input-email.has-error + #login-error {
+    color: #ed232a;
+    opacity: 1;
+}
+
+.login .login-button {
+    padding: 0;
+    margin: 14px auto 0;
+    display: block;
+    width: 147px;
+    height: 40px;
+    background-color: #01a0dd;
+    color: #fff;
+    border-radius: 5px;
+    border: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.login .login-button:focus {
+    outline: none;
+}
