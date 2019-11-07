@@ -1,44 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Estréllame - Home</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/nav.css">
-        <link rel="stylesheet" href="css/landing.css">
-    </head>
-    <body class="landing-page">
-        <nav class="nav">
-            <ul>
-                <li>
-                    <img class="logo" src="img/estrellame-logo.png" alt="logo"/>
+<head>
+    <meta charset="utf-8">
+    <title>Estréllame - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body class="landing-page">
+    <nav class="nav">
+        <ul>
+            <li>
+                <img class="logo" src="img/estrellame-logo.png" alt="logo" />
+            </li>
+            <li class="user-info">
+                <p>Nombre de usuario y apellido</p>
+                <img src="img/estrellame-avatar.png" alt="avatar" />
+            </li>
+        </ul>
+    </nav>
+    <main class="landing">
+        <section class="stars-wrapper">
+            <h1>Envía una Estrella</h1>
+            <ul class="stars">
+                <li class="star excellence" data-toggle="modal" data-target="#giveStartModal" data-type="excellence" data-title="Excelencia">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Excelencia</p>
                 </li>
-                <li class="user-info">
-                    <p>Nombre de usuario y apellido</p>
-                    <img src="img/estrellame-avatar.png" alt="avatar" />
+                <li class="star team-work" data-toggle="modal" data-target="#giveStartModal" data-type="team-work" data-title="Trabajo en Equipo">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Trabajo en Equipo</p>
+                </li>
+                <li class="star think-big" data-toggle="modal" data-target="#giveStartModal" data-type="think-big" data-title="Pensar en Grande">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Pensar en Grande</p>
+                </li>
+                <li class="star innovation" data-toggle="modal" data-target="#giveStartModal" data-type="innovation" data-title="Innovación constante">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Innovación constante</p>
+                </li>
+                <li class="star fun" data-toggle="modal" data-target="#giveStartModal" data-type="fun" data-title="Diversión">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Diversión</p>
+                </li>
+                <li class="star moral" data-toggle="modal" data-target="#giveStartModal" data-type="moral" data-title="Actuar con Ética">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <p>Actuar con Ética</p>
                 </li>
             </ul>
-        </nav>
-        <main class="landing">
-            <section class="stars-wrapper">
-                <h1>Envía una estrella</h1>
-                <ul class="stars">
-                    <li class="star team-work">
-                        <img src="img/estrellame-star.png" alt="star"/>
-                        <p>Trabaja en equipo</p>
-                    </li>
-                    <li class="star think-big">
-                        <img src="img/estrellame-star.png" alt="star"/>
-                        <p>Pensar en grande</p>
-                    </li>
-                </ul>
-            </section>
-        </main>
-        <script src="js/jquery-3.3.1.slim.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+        </section>
+    </main>
+    <div class="modal fade" id="giveStartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="img/estrellame-star.png" alt="star" />
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">A quién quieres enviar la estrella?</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Escribe un mensaje</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+                    <button type="button" class="btn btn-primary">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/landing.js"></script>
+</body>
 </html>

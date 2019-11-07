@@ -19,7 +19,89 @@ main.main-login {
 
 main.landing {
     width: 100%;
-    max-width: 900px;
+    max-width: 945px;
     margin: 0 auto;
     margin-top: 106px;
+}
+
+.modal-dialog {
+    margin-top: 102px;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.modal-dialog .modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-dialog .modal-content .modal-header {
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    padding: 18px;
+}
+
+.modal-dialog .modal-content .modal-header img {
+    height: 22px;
+}
+
+.modal-dialog .modal-content .modal-header .modal-title {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.modal-dialog .modal-content .modal-body {
+    width: 100%;
+    align-self: center;
+    padding: 14px 0;
+    max-width: 480px;
+}
+
+.modal-dialog .modal-content .modal-body #message-text {
+    height: 150px;
+    resize: none;
+}
+
+.modal-dialog .modal-content .modal-body .col-form-label {
+    color: #898b8b;
+}
+
+.modal-dialog .modal-content .modal-footer {
+    border: none;
+    width: 100%;
+    max-width: 480px;
+    align-self: center;
+    justify-content: space-between;
+    padding: 0 0 40px 0;
+}
+
+.modal-dialog .modal-content .modal-footer .btn-secondary {
+    background: #eff0f1;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    width: 130px;
+    margin: 0;
+    padding: 8px 12px;
+}
+
+.modal-dialog .modal-content .modal-footer .btn {
+    font-weight: bold;
+    border: none;
+    width: 130px;
+    margin: 0;
+    padding: 8px 12px;
+}
+
+.modal-dialog .modal-content .modal-footer .btn-secondary {
+    background: #eff0f1;
+    color: #000;
+}
+
+.modal-dialog .modal-content .modal-footer .btn-primary {
+    background: #01a0dd;
+    color: #fff;
 }
