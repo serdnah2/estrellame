@@ -1,5 +1,5 @@
 window.onload = () => {
-    $('#giveStartModal').on('show.bs.modal', event => {
+    $('#giveStartModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var type = button.data('type');
         var title = button.data('title');
@@ -8,7 +8,7 @@ window.onload = () => {
         modal.find('.modal-title').text(title);
     });
 
-    $('#giveStartModal').on('hidden.bs.modal', () => {
+    $('#giveStartModal').on('hidden.bs.modal', function() {
         var modal = $(this)
         modal.find('.modal-header').removeClass('excellence team-work think-big innovation fun moral');
         modal.find('.modal-title').text('');
