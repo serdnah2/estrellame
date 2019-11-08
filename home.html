@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/tabs.css">
 </head>
 <body class="landing-page">
-    <nav class="nav">
+    <nav class="main-nav">
         <ul>
             <li>
                 <img class="logo" src="img/estrellame-logo.png" alt="logo" />
@@ -51,6 +52,27 @@
                     <p>Actuar con Ética</p>
                 </li>
             </ul>
+        </nav>
+            <section class="tabs-wrapper">
+                <h1>Tus Estrellas</h1>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="enviadas-tab" data-toggle="tab" href="#enviadas" role="tab" aria-controls="enviadas" aria-selected="true">ENVIADAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="recibidas-tab" data-toggle="tab" href="#recibidas" role="tab" aria-controls="recibidas" aria-selected="false">RECIBIDAS</a>
+                    </li>
+                    </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="enviadas" role="tabpanel" aria-labelledby="enviadas-tab">
+                        <div class="start-tab"></div>
+                    </div>
+                    <div class="tab-pane fade" id="recibidas" role="tabpanel" aria-labelledby="recibidas-tab">
+                        <div class="start-tab"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
         </section>
     </main>
     <div class="modal fade" id="giveStartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
