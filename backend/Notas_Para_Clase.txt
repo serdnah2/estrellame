@@ -1,0 +1,39 @@
+1. Descargar MariaDB de  https://downloads.mariadb.org/
+2. Descargar cmder de https://cmder.net/
+3. Descargar sqldeveloper de https://www.oracle.com/tools/downloads/sqldev-v192-downloads.html
+
+Conceptos importantes:
+	1. Abstracción: capacidad de tomar de algo lo que más interesa o lo que no está a simple vista, incluso sin entrar mucho a los detalles.
+	2. Base de datos: conjunto de datos organizados en un mismo contexto.
+		1. Estáticas: Bases de datos que son únicamente de lectura.
+		2. Dinámicas: Bases de datos que permiten cambiar su información con el paso del tiempo.
+	3. Sistema gestor de base de datos (SGBD): programa o conjunto de programas que permiten el almacenamiento, modificación y extracción de la información en una base de datos.
+	4. Tabla: modelado o recopilación de datos (conjunto de datos)
+	5. Columna: representa un tipo único de información acerca de la entidad (atributo)
+	6. Dato: representación simbólica (numérica, alfabética, booleana) de una entidad
+	7. Registro o tupla o fila: corresponde a una fila en la base de datos. Representa un objeto único.
+	8. Clave primaria: campo o combinación de campos (compuesta) que identifica de forma única a cada registro. Es obligatoria y debe ser siempre única.
+	9. Clave foránea: referencia entre dos tablas. Identifica una columna o varias columnas (compuesta) en una tabla, haciendo referencia a otra tabla. No tiene que ser obligatoria.
+
+
+Tipos de relaciones:
+
+1. Relación 1 a 1
+
+2. Relación 1 a muchos
+
+3. Relación muchos a muchos
+
+
+
+Flujo de scripts:
+    
+1. EXEC.sql -> Defines the order to execute the scripts
+2. SCHEME.sql -> Creates the database
+3. DDL.sql -> Creates the tables without constraints
+4. CONSTRAINTS.sql -> Creates the constraints for each table
+5. DML.sql -> Creates the basic data for the tables
+
+Tarea:
+
+Revisar las 3 formas normales de base de datos.

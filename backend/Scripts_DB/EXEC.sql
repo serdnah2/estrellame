@@ -1,0 +1,9 @@
+-- source <PATH-FOLDER>/Scripts_DB/EXEC.sql
+
+SOURCE <PATH-FOLDER>/Scripts_DB/SCHEME.sql;
+SOURCE <PATH-FOLDER>/Scripts_DB/DDL.sql;
+SOURCE <PATH-FOLDER>/Scripts_DB/CONSTRAINTS.sql;
+
+--SOURCE <PATH-FOLDER>/Scripts_DB/DML.sql;
+
+
