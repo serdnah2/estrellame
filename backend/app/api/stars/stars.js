@@ -8,7 +8,7 @@ const _getStars = (req, res, next) => {
                     next();
                     conn.end();
                 })
-                .catch(err => conn.end() );
+                .catch(err => conn.end());
 
         }).catch(err => {});
 };
