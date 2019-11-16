@@ -1,10 +1,16 @@
 const mariadbPool = require('../../services/connection');
-const _getStars = (req, res, next) => {
+const authenticatedUser = require('../../model/user');
+const _postAuth = (req, res, next) => {
+
+    let email = req.body.email;
+    
     mariadbPool.pool.getConnection()
         .then(conn => {
-            conn.query("SELECT * FROM STARS_TBL")
+            authenticatedUser.email = '';
+            conn.query('SELECT * FROM USERS_TBL WHERE EMAIL = ?', [email])
                 .then((rows) => {
                     res.status(200).send({ data: rows });
+                    authenticatedUser.email = rows[0].EMAIL;
                     next();
                     conn.end();
                 })
@@ -13,4 +19,4 @@ const _getStars = (req, res, next) => {
         }).catch(err => {});
 };
 
-exports.getStars = _getStars;
+exports.postAuth = _postAuth;
