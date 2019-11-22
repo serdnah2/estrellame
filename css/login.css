@@ -56,7 +56,7 @@
 }
 
 .login #login-error {
-    font-size: 14px;
+    font-size: 13px;
     margin: 6px 0 16px;
     opacity: 0;
     transition: opacity .5s linear;

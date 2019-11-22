@@ -1,32 +1,34 @@
 const mariadbPool = require('../../services/connection');
-const authenticatedUser = require('../../model/user');
+/**
+ * API para devolver tanto las estrellas enviadas como las recibidas
+ */
 const _getUserStars = (req, res, next) => {
-    let status = req.query.status;
+    let status = req.params.status;
+    let userId = req.params.userId;
 
-    let baseStatement = 'SELECT * FROM USERS_STARS_TBL WHERE ';
-    let condition = status === 'recibidas' ? 'RECEIVER_ID = ?' : 'SENDER_ID = ?';
+    let baseStatement = status === 'recibidas' ? 
+        'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.SENDER_ID WHERE USERS_STARS_TBL.RECEIVER_ID = ?' :
+        'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.RECEIVER_ID WHERE USERS_STARS_TBL.SENDER_ID = ?';
 
-    if (authenticatedUser.email) {
-        mariadbPool.pool
-            .getConnection()
-            .then(conn => {
-                conn.query('SELECT * FROM USERS_TBL WHERE EMAIL = ?', [authenticatedUser.email])
-                    .then(rows => {
-                        conn.query(baseStatement + condition, [rows[0].ID])
-                            .then(rows => {
-                                res.status(200).send({ data: rows });
-                                next();
-                                conn.end();
-                            })
-                            .catch(err => conn.end());
-                    })
-                    .catch(err => conn.end());
-            })
-            .catch(err => {});
-    } else {
-        res.status(401).send();
-        next(); 
-    }
+    mariadbPool.pool
+        .getConnection()
+        .then(conn => {
+            conn.query('SELECT * FROM USERS_TBL WHERE ID = ?', [userId])
+                .then(users => {
+                    conn.query(baseStatement, [users[0].ID])
+                        .then(rows => {
+                            res.status(200).send({ data: rows });
+                            next();
+                            conn.end();
+                        })
+                        .catch(err => conn.end());
+                })
+                .catch(() => {
+                    res.status(404).send({ error: 'User not found' });
+                    conn.end()
+                });
+        })
+        .catch(err => {});
 };
 
 exports.getUserStars = _getUserStars;

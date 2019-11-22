@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Estréllame - Home</title>
@@ -12,14 +13,15 @@
     <link rel="stylesheet" href="css/landing.css">
     <link rel="stylesheet" href="css/tabs.css">
 </head>
-<body class="landing-page">
+
+<body class="landing-page hide">
     <nav class="main-nav">
         <ul>
             <li>
                 <img class="logo" src="img/estrellame-logo.png" alt="logo" />
             </li>
             <li class="user-info">
-                <p>Nombre de usuario y apellido</p>
+                <p id="username"></p>
                 <img src="img/estrellame-avatar.png" alt="avatar" />
             </li>
         </ul>
@@ -27,104 +29,42 @@
     <main class="landing">
         <section class="stars-wrapper">
             <h1>Envía una Estrella</h1>
-            <ul class="stars">
-                <li class="star excellence" data-toggle="modal" data-target="#giveStartModal" data-type="excellence" data-title="Excelencia">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Excelencia</p>
-                </li>
-                <li class="star team-work" data-toggle="modal" data-target="#giveStartModal" data-type="team-work" data-title="Trabajo en Equipo">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Trabajo en Equipo</p>
-                </li>
-                <li class="star think-big" data-toggle="modal" data-target="#giveStartModal" data-type="think-big" data-title="Pensar en Grande">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Pensar en Grande</p>
-                </li>
-                <li class="star innovation" data-toggle="modal" data-target="#giveStartModal" data-type="innovation" data-title="Innovación constante">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Innovación constante</p>
-                </li>
-                <li class="star fun" data-toggle="modal" data-target="#giveStartModal" data-type="fun" data-title="Diversión">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Diversión</p>
-                </li>
-                <li class="star moral" data-toggle="modal" data-target="#giveStartModal" data-type="moral" data-title="Actuar con Ética">
-                    <img src="img/estrellame-star.png" alt="star" />
-                    <p>Actuar con Ética</p>
-                </li>
-            </ul>
-        </nav>
+            <ul class="stars" id="stars"></ul>
             <section class="tabs-wrapper">
                 <h1>Tus Estrellas</h1>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="enviadas-tab" data-toggle="tab" href="#enviadas" role="tab" aria-controls="enviadas" aria-selected="true">ENVIADAS</a>
+                        <a class="nav-link active" id="sent-tab" data-toggle="tab" href="#sent" role="tab"
+                            aria-controls="sent" aria-selected="true">ENVIADAS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="recibidas-tab" data-toggle="tab" href="#recibidas" role="tab" aria-controls="recibidas" aria-selected="false">RECIBIDAS</a>
+                        <a class="nav-link" id="received-tab" data-toggle="tab" href="#received" role="tab"
+                            aria-controls="received" aria-selected="false">RECIBIDAS</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="enviadas" role="tabpanel" aria-labelledby="enviadas-tab">
-                        <div class="star-tab">
-                            <div class="star-info">
-                                <img class="reciber-profile-img" src="img/estrellame-avatar.png" alt="star reciber profile image">
-                                <div>
-                                    <div class="name-and-date">
-                                        <h3 class="reciber-name">Nombre Usuario y Apellido</h3>
-                                        <p class= "star-date">hace 22 minutos</p>
-                                    </div>
-                                    <div class="star-type">
-                                        <div class="icon-container excellence">
-                                            <img class="star-img" src="img/estrellame-star.png" alt="star image">
-                                        </div> 
-                                        <p class="star-text excellence">Excelencia</p>
-                                    </div>
-                                    <p class="star-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. </p>
-                                </div>
-                            </div>
-                            <div class="sender-info">
-                                <img class="sender-profile-img" src="img/estrellame-avatar.png" alt="star sender profile image">
-                                <p>Enviada por <b>Alejandro Cadavid Pérez</b></p>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="tab-pane fade" id="recibidas" role="tabpanel" aria-labelledby="recibidas-tab">
-                        <div class="star-tab">
-                            <div class="star-info">
-                                <div>
-                                    <div class="star-and-date">
-                                        <div class="star-type">
-                                            <div class="icon-container excellence">
-                                                <img class="star-img" src="img/estrellame-star.png" alt="star image">
-                                            </div> 
-                                            <p class="star-text excellence">Excelencia</p>
-                                        </div>
-                                        <p class= "star-date">hace 22 minutos</p>
-                                    </div>
-                                    <p class="star-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident. </p>
-                                </div>
-                            </div>
-                            <div class="sender-info">
-                                <img class="sender-profile-img" src="img/estrellame-avatar.png" alt="star sender profile image">
-                                <p>Enviada por <b>Alejandro Cadavid Pérez</b></p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="tab-pane fade show active" id="sent" role="tabpanel" aria-labelledby="sent-tab"></div>
+                    <div class="tab-pane fade" id="received" role="tabpanel" aria-labelledby="received-tab"></div>
                 </div>
             </section>
-        </main>
         </section>
     </main>
-    <div class="modal fade" id="giveStartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal fade" id="giveStartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header title">
                     <img src="img/estrellame-star.png" alt="star" />
                     <h5 class="modal-title" id="modalTitle"></h5>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <div class="modal-header error">
+                    <h5 class="modal-title">Ocurrió un error al enviar tu mensaje</h5>
+                </div>
+                <div class="modal-header success">
+                    <h5 class="modal-title">Tu mensaje fue enviado con éxito</h5>
+                </div>
+                <div class="modal-body add-start">
+                    <form id="addStarForm">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">A quién quieres enviar la estrella?</label>
                             <input type="text" class="form-control" id="recipient-name">
@@ -133,11 +73,35 @@
                             <label for="message-text" class="col-form-label">Escribe un mensaje</label>
                             <textarea class="form-control" id="message-text"></textarea>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+                            <button type="submit" class="btn btn-primary">ENVIAR</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
-                    <button type="button" class="btn btn-primary">ENVIAR</button>
+                <div class="modal-body error">
+                    <p>
+                        Oops! ocurrió un error inesperado al enviar tu mensaje.
+                        <br />
+                        Inténtalo de nuevo
+                    </p>
+                    <div class="modal-footer" id="dismissing-error">
+                        <button class="btn btn-primary">Intentar de nuevo</button>
+                    </div>
+                </div>
+                <div class="modal-body success">
+                    <div class="success-message">
+                        <div class="avatar">
+                            <img src="img/estrellame-avatar.png" alt="avatar" />
+                        </div>
+                        <div class="preview-message-wrapper">
+                            <h3 id="user-recieve">asfasfafaf asfasf</h3>
+                            <p id="preview-message">asfasf</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="ok-button">Ok</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,4 +111,5 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/landing.js"></script>
 </body>
+
 </html>

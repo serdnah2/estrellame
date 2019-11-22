@@ -32,13 +32,9 @@
     color: #31a0dd;
 }
 
-.landing .tabs-wrapper .star-tab {
-    background-color: #fff;
-
-}
-
 .tabs-wrapper .star-tab .star-info {
-    display: flex;  
+    display: flex;
+    background-color: #fff;
 }
 
 .tabs-wrapper .star-tab .star-type, 
@@ -48,6 +44,10 @@
 .tabs-wrapper .star-tab .star-type .icon-container {
     display: flex;
     align-items: center;
+}
+
+.tabs-wrapper .star-tab .name-and-date-wrapper {
+    width: 100%;
 }
 
 .tabs-wrapper .star-tab .reciber-profile-img {
@@ -97,7 +97,7 @@
 
 .tabs-wrapper .star-tab .sender-info {
     background-color: #f8fafa;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .tabs-wrapper .star-tab .sender-info img {
@@ -123,4 +123,8 @@
 
 .tabs-wrapper .star-tab .star-and-date + .star-text {
     margin: 15px 15px 30px 15px;
+}
+
+.tabs-wrapper .star-tab + .star-tab {
+    margin-top: 20px;
 }

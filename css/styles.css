@@ -53,11 +53,41 @@ main.landing {
     font-weight: bold;
 }
 
+.modal-dialog .modal-content .modal-header.error,
+.modal-dialog .modal-content .modal-header.success {
+    display: none;
+    text-align: center;
+}
+
+.modal-dialog .modal-content .modal-header.error {
+    background-color: #ed1d25;
+}
+
+.modal-dialog .modal-content .modal-header.success {
+    background-color: #9abe29;
+}
+
 .modal-dialog .modal-content .modal-body {
     width: 100%;
     align-self: center;
     padding: 14px 0;
     max-width: 480px;
+}
+
+.modal-dialog .modal-content .modal-body.error,
+.modal-dialog .modal-content .modal-body.success {
+    display: none;
+    padding: 40px 0 0;
+}
+
+.modal-dialog .modal-content .modal-body.error .modal-footer,
+.modal-dialog .modal-content .modal-body.success .modal-footer {
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.modal-dialog .modal-content .modal-body.error .modal-footer button {
+    width: 180px;
 }
 
 .modal-dialog .modal-content .modal-body #message-text {
@@ -104,4 +134,15 @@ main.landing {
 .modal-dialog .modal-content .modal-footer .btn-primary {
     background: #01a0dd;
     color: #fff;
+}
+
+.modal-dialog .modal-content .modal-body.success .success-message {
+    display: flex;
+}
+
+.modal-dialog .modal-content .modal-body.success .success-message .avatar img {
+    width: 90px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 6px grey;
+    margin-right: 15px;
 }
