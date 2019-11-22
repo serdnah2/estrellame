@@ -11,6 +11,10 @@ app.use(
         extended: true
     })
 );
+/**
+ * Cors habilita al servidor recibir peticiones desde otros servidores: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+ * Si no se define tendríamos un error de Cross-Origin
+ */
 app.use(cors());
 
 routes.initRoutes(app);
