@@ -1,6 +1,7 @@
 .landing .tabs-wrapper {
     margin-top: 35px;
 }
+
 .landing .tabs-wrapper h1 {
     font-size: 20px;
     font-weight: bold;
@@ -16,22 +17,110 @@
 }
 
 .landing .tabs-wrapper .nav-link {
-    display: flex;
     align-items: center;
-    height: 62px;
-    font-weight: bold;
     background-color: #f8fafa;
     border: none;
     color: #949494;
+    display: flex;
+    font-weight: bold;
+    height: 62px;
 }
 
 .landing .tabs-wrapper .nav-link.active {
     background-color: #fff;
-    color: #31a0dd;
     border-bottom: solid 4px #31a0dd;
+    color: #31a0dd;
 }
 
-.landing .tabs-wrapper .start-tab {
+.landing .tabs-wrapper .star-tab {
     background-color: #fff;
-    height: 200px;
+
+}
+
+.tabs-wrapper .star-tab .star-info {
+    display: flex;  
+}
+
+.tabs-wrapper .star-tab .star-type, 
+.tabs-wrapper .star-tab .sender-info,
+.tabs-wrapper .star-tab .name-and-date,
+.tabs-wrapper .star-tab .star-and-date,
+.tabs-wrapper .star-tab .star-type .icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.tabs-wrapper .star-tab .reciber-profile-img {
+    box-shadow: 0px 1px 6px grey;
+    height: 75px;
+    margin: 15px;
+    width: 75px;
+}
+
+.tabs-wrapper .star-tab .name-and-date {
+    justify-content: space-between;
+    margin: 15px 15px 5px 0;
+}
+
+.tabs-wrapper .star-tab .name-and-date h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tabs-wrapper .star-tab .star-date {
+    color: #9a9a9a;
+    font-size: 14px;
+    margin: 0 ;
+}
+
+.tabs-wrapper .star-tab .star-type .icon-container{
+    border-radius: 50%;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+}
+
+.tabs-wrapper .star-tab .star-type img{
+    height: 22px;
+}
+
+.tabs-wrapper .star-tab .star-type p{
+    font-weight: bold;
+    margin: 0 0 0 5px;
+
+}
+
+.tabs-wrapper .star-tab .star-text {
+    margin: 10px 0;
+}
+
+.tabs-wrapper .star-tab .sender-info {
+    background-color: #f8fafa;
+    margin-top: 4px;
+}
+
+.tabs-wrapper .star-tab .sender-info img {
+    border-radius: 50%;
+    box-shadow: 0px 1px 6px grey;
+    height: 22px;
+    margin: 15px;
+}
+
+.tabs-wrapper .star-tab .sender-info p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.tabs-wrapper .star-tab .sender-info p b {
+    margin-left: 5px;
+}
+
+.tabs-wrapper .star-tab .star-and-date {
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.tabs-wrapper .star-tab .star-and-date + .star-text {
+    margin: 15px 15px 30px 15px;
 }

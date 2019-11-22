@@ -1,0 +1,53 @@
+.team-work {
+    background: #9959e7;
+}
+
+.think-big {
+    background: #eb0d8a;
+}
+
+.excellence {
+    background: #01a0dd;
+}
+
+.innovation {
+    background: #eb8a0e;
+}
+
+.fun {
+    background: #ecbc0d;
+}
+
+.moral {
+    background: #07ab40;
+}
+
+p.team-work {
+    color: #9959e7;
+    background: transparent;
+}
+
+p.think-big {
+    color: #eb0d8a;
+    background: transparent;
+}
+
+p.excellence {
+    color: #01a0dd;
+    background: transparent;
+}
+
+p.innovation {
+    color: #eb8a0e;
+    background: transparent;
+}
+
+p.fun {
+    color: #ecbc0d;
+    background: transparent;
+}
+
+p.moral {
+    color: #07ab40;
+    background: transparent;
+}
