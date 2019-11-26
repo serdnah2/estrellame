@@ -9,11 +9,13 @@ window.onload = () => {
             allUsers = [],
             allTypeStars = [],
             idStarToSent,
+            idUserSelected,
             tryAgainButton = document.querySelector('#dismissing-error'),
             okButton = document.querySelector('#ok-button'),
-            messageInput = document.querySelector("#message-text");
-        receiverEmail = document.querySelector("#recipient-name");
-        userAvatar = document.querySelector('.user-info');
+            messageInput = document.querySelector("#message-text"),
+            receiverEmail = document.querySelector("#recipient-name"),
+            userAvatar = document.querySelector('.user-info'),
+            clearButton = document.querySelector('.recipient-name-input .clear');
 
         /**
          * Agregamos los escuchadores al botón de intentar de nuevo y al botón de ok
@@ -28,6 +30,36 @@ window.onload = () => {
         userAvatar.addEventListener('click', () => {
             localStorage.removeItem('user');
             window.location.href = 'index.html';
+        });
+        clearButton.addEventListener('click', () => {
+            idUserSelected = '';
+            receiverEmail.value = '';
+            $(clearButton).hide();
+        });
+
+        /**
+         * Plugin de jquery para mostrar el input con el autocomplete
+         */
+        $('#recipient-name').autoComplete({
+            source: function(term, suggest){
+                term = term.toLowerCase();
+                var matches = [];
+                for (i=0; i<allUsers.length; i++)
+                    if (
+                        ~allUsers[i].NAME.toLowerCase().indexOf(term) ||
+                        ~allUsers[i].LASTNAME1.toLowerCase().indexOf(term) ||
+                        ~allUsers[i].LASTNAME2.toLowerCase().indexOf(term)) matches.push(allUsers[i]);
+                suggest(matches);
+            },
+            renderItem: function (item, search){
+                search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                return '<div class="autocomplete-suggestion" data-id="' + item.ID + '" data-name="' + item.NAME +' ' + item.LASTNAME1 + ' ' + item.LASTNAME2 + '" data-val="'+search+'"><img src="img/estrellame-avatar.png"> ' + item.NAME +' ' + item.LASTNAME1 + ' ' + item.LASTNAME2 + '</div>';
+            },
+            onSelect: function(e, term, item){
+                idUserSelected = item.data('id');
+                receiverEmail.value = item.data('name');
+                $(clearButton).show();
+            }
         });
 
         /**
@@ -105,9 +137,8 @@ window.onload = () => {
 
             addStarForm.addEventListener('submit', event => {
                 event.preventDefault();
-                const userToSent = allUsers.find(user => user.EMAIL === receiverEmail.value);
 
-                if (userToSent) {
+                if (idUserSelected != '' && messageInput.value != '') {
                     /**
                      * El método fetch es quien se encarga de hacer el llamado AJAX a la base de datos,
                      * Solo necesitamos pasarle unos parámetros necesarios:
@@ -123,7 +154,7 @@ window.onload = () => {
                         },
                         method: 'POST',
                         body: JSON.stringify({
-                            RECEIVER_ID: userToSent.ID,
+                            RECEIVER_ID: idUserSelected,
                             SENDER_ID: user.data.ID,
                             STAR_ID: parseInt(idStarToSent),
                             DESCRIPTION: messageInput.value
@@ -136,11 +167,9 @@ window.onload = () => {
                              * En caso contrario, mostramos un error en pantalla
                              */
                             res.success ?
-                                showSuccess(userToSent, messageInput.value) :
+                                showSuccess(allUsers.find(user => user.ID == idUserSelected), messageInput.value) :
                                 showError();
                         }).catch(() => { });
-                } else {
-                    showError();
                 }
             });
         }
