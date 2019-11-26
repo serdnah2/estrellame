@@ -264,7 +264,7 @@ window.onload = () => {
                          */
                         res.data.forEach(receivedStarItem => {
                             const typeStar = allTypeStars.find(star => star.ID === receivedStarItem.STAR_ID);
-                            let sentDate = new Date(sentStarItem.SENT_DATE);
+                            let sentDate = new Date(receivedStarItem.SENT_DATE);
                             const time = timeSince(sentDate);
                             document.querySelector('#received').innerHTML += `
                             <div class="star-tab">
