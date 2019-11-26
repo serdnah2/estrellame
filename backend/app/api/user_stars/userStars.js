@@ -6,9 +6,10 @@ const _getUserStars = (req, res, next) => {
     let status = req.params.status;
     let userId = req.params.userId;
 
-    let baseStatement = status === 'recibidas' ? 
-        'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.SENDER_ID WHERE USERS_STARS_TBL.RECEIVER_ID = ?' :
-        'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.RECEIVER_ID WHERE USERS_STARS_TBL.SENDER_ID = ?';
+    let baseStatement =
+        status === 'recibidas'
+            ? 'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.SENDER_ID WHERE USERS_STARS_TBL.RECEIVER_ID = ? ORDER BY SENT_DATE DESC'
+            : 'SELECT USERS_STARS_TBL.*, NAME, LASTNAME1, LASTNAME2 FROM USERS_STARS_TBL JOIN USERS_TBL ON USERS_TBL.ID = USERS_STARS_TBL.RECEIVER_ID WHERE USERS_STARS_TBL.SENDER_ID = ? ORDER BY SENT_DATE DESC';
 
     mariadbPool.pool
         .getConnection()
@@ -25,7 +26,7 @@ const _getUserStars = (req, res, next) => {
                 })
                 .catch(() => {
                     res.status(404).send({ error: 'User not found' });
-                    conn.end()
+                    conn.end();
                 });
         })
         .catch(err => {});
