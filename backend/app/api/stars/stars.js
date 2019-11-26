@@ -27,7 +27,7 @@ const _addStars = (req, res, next) => {
         .then(conn => {
             conn.query(
                 `INSERT INTO USERS_STARS_TBL(RECEIVER_ID, SENDER_ID, STAR_ID, DESCRIPTION, SENT_DATE) VALUES (?, ?, ?, ?, ?)`,
-                [data.RECEIVER_ID, data.SENDER_ID, data.STAR_ID, data.DESCRIPTION, data.SENT_DATE]
+                [data.RECEIVER_ID, data.SENDER_ID, data.STAR_ID, data.DESCRIPTION, new Date()]
             )
                 .then(() => {
                     res.status(200).send({ success: true });

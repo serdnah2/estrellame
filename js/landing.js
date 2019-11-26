@@ -1,5 +1,6 @@
 window.onload = () => {
     if (localStorage.getItem('user')) {
+        const api = 'http://ec2-18-220-72-102.us-east-2.compute.amazonaws.com:4000';
         document.querySelector(".landing-page").classList.remove('hide');
         /**
          * Guardamos los elementos HTML para luegao añadirle escuchadores o capturar valores
@@ -115,7 +116,7 @@ window.onload = () => {
                      * - method: Es el verdo HTPP por el cual el backend está esperando la petición
                      * - body: los datos que le enviamos al backend
                      */
-                    fetch('http://localhost:3000/stars', {
+                    fetch(api + '/stars', {
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
@@ -162,7 +163,7 @@ window.onload = () => {
              * El método fetch es quien se encarga de hacer el llamado AJAX a la base de datos.
              * A diferencia de los otros, cuando solo necesitamos hacer una petición GET, solo es necesario definir la URL
              */
-            fetch(`http://localhost:3000/users`)
+            fetch(api + '/users')
                 .then(response => response.json())
                 .then(res => {
                     /**
@@ -182,7 +183,7 @@ window.onload = () => {
              * El método fetch es quien se encarga de hacer el llamado AJAX a la base de datos.
              * A diferencia de los otros, cuando solo necesitamos hacer una petición GET, solo es necesario definir la URL
              */
-            fetch(`http://localhost:3000/stars`)
+            fetch(api + '/stars')
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {
@@ -208,7 +209,7 @@ window.onload = () => {
          * Este método obtiene mediante AJAX todas las estrellas enviadas
          */
         function getSentStars() {
-            fetch(`http://localhost:3000/stars/${user.data.ID}/enviadas`)
+            fetch(`${api}/stars/${user.data.ID}/enviadas`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {
@@ -217,6 +218,8 @@ window.onload = () => {
                          */
                         res.data.forEach(sentStarItem => {
                             const typeStar = allTypeStars.find(star => star.ID === sentStarItem.STAR_ID);
+                            let sentDate = new Date(sentStarItem.SENT_DATE);
+                            const time = timeSince(sentDate);
                             document.querySelector('#sent').innerHTML += `
                             <div class="star-tab">
                                 <div class="star-info">
@@ -224,7 +227,7 @@ window.onload = () => {
                                     <div class="name-and-date-wrapper">
                                         <div class="name-and-date">
                                             <h3 class="reciber-name">${sentStarItem.NAME} ${sentStarItem.LASTNAME1} ${sentStarItem.LASTNAME2}</h3>
-                                            <p class= "star-date">hace 22 minutos</p>
+                                            <p class= "star-date">${time}</p>
                                         </div>
                                         <div class="star-type">
                                             <div class="icon-container ${typeStar.DESCRIPTION}">
@@ -252,7 +255,7 @@ window.onload = () => {
          * Este método obtiene mediante AJAX todas las estrellas recibidas
          */
         function getReceivedStars() {
-            fetch(`http://localhost:3000/stars/${user.data.ID}/recibidas`)
+            fetch(`${api}/stars/${user.data.ID}/recibidas`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {
@@ -288,6 +291,35 @@ window.onload = () => {
                         document.querySelector('#received').innerHTML = 'Aún no te han enviado estrellas';
                     }
                 }).catch(() => { });
+        }
+
+        /**
+         * Este método nos dice hace cuánto se agregó la estrella
+         */
+        function timeSince(date) {
+            let minute = 60;
+            let hour   = minute * 60;
+            let day    = hour   * 24;
+            let month  = day    * 30;
+            let year   = day    * 365;
+        
+            let suffix = 'hace ';
+        
+            let elapsed = Math.floor((Date.now() - date) / 1000);
+        
+            if (elapsed < minute) {
+                return 'Justo ahora';
+            }
+        
+            // get an array in the form of [number, string]
+            let a = elapsed < hour  && [Math.floor(elapsed / minute), 'minuto'] ||
+                    elapsed < day   && [Math.floor(elapsed / hour), 'hora']     ||
+                    elapsed < month && [Math.floor(elapsed / day), 'día']       ||
+                    elapsed < year  && [Math.floor(elapsed / month), 'mes']     ||
+                    [Math.floor(elapsed / year), 'año'];
+        
+            // pluralise and append suffix
+            return suffix + a[0] + ' ' + a[1] + (a[0] === 1 ? '' : 's');
         }
 
         getUserData();
