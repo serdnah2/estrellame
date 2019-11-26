@@ -1,5 +1,6 @@
 window.onload = () => {
     if (localStorage.getItem('user')) {
+        const api = 'http://ec2-18-220-72-102.us-east-2.compute.amazonaws.com:4000';
         document.querySelector(".landing-page").classList.remove('hide');
         /**
          * Guardamos los elementos HTML para luegao añadirle escuchadores o capturar valores
@@ -115,7 +116,7 @@ window.onload = () => {
                      * - method: Es el verdo HTPP por el cual el backend está esperando la petición
                      * - body: los datos que le enviamos al backend
                      */
-                    fetch('http://localhost:3000/stars', {
+                    fetch(api + '/stars', {
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
@@ -162,7 +163,7 @@ window.onload = () => {
              * El método fetch es quien se encarga de hacer el llamado AJAX a la base de datos.
              * A diferencia de los otros, cuando solo necesitamos hacer una petición GET, solo es necesario definir la URL
              */
-            fetch(`http://localhost:3000/users`)
+            fetch(api + '/users')
                 .then(response => response.json())
                 .then(res => {
                     /**
@@ -182,7 +183,7 @@ window.onload = () => {
              * El método fetch es quien se encarga de hacer el llamado AJAX a la base de datos.
              * A diferencia de los otros, cuando solo necesitamos hacer una petición GET, solo es necesario definir la URL
              */
-            fetch(`http://localhost:3000/stars`)
+            fetch(api + '/stars')
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {
@@ -208,7 +209,7 @@ window.onload = () => {
          * Este método obtiene mediante AJAX todas las estrellas enviadas
          */
         function getSentStars() {
-            fetch(`http://localhost:3000/stars/${user.data.ID}/enviadas`)
+            fetch(`${api}/stars/${user.data.ID}/enviadas`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {
@@ -252,7 +253,7 @@ window.onload = () => {
          * Este método obtiene mediante AJAX todas las estrellas recibidas
          */
         function getReceivedStars() {
-            fetch(`http://localhost:3000/stars/${user.data.ID}/recibidas`)
+            fetch(`${api}/stars/${user.data.ID}/recibidas`)
                 .then(response => response.json())
                 .then(res => {
                     if (res.data && res.data.length > 0) {

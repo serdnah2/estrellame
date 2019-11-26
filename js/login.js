@@ -4,7 +4,8 @@ window.onload = () => {
      */
     const loginForm = document.querySelector('#login-form'),
         errorMessage = document.querySelector('#login-error'),
-        emailInput = document.querySelector('#email-input');
+        emailInput = document.querySelector('#email-input'),
+        api = 'http://ec2-18-220-72-102.us-east-2.compute.amazonaws.com:4000';
     
     /**
      * Agregando el escuchador cuando en el formulario se haga submit
@@ -57,7 +58,7 @@ window.onload = () => {
          * - method: Es el verdo HTPP por el cual el backend está esperando la petición
          * - body: los datos que le enviamos al backend
          */
-        fetch('http://localhost:3000/login', {
+        fetch(api + '/login', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
