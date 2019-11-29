@@ -2,6 +2,10 @@
 
 Proyecto semillero Alianza Futuro Digital Medellín 2019.
 
+# Enlace a la página web
+
+http://ec2-18-220-72-102.us-east-2.compute.amazonaws.com/estrellame/index.html
+
 ## Historias de usuario
 
 Trello: https://trello.com/b/IPIOeJvh/alianza-futuro-grupo-1
